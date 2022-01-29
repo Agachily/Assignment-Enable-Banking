@@ -16,7 +16,10 @@ const psuHeaders = {
   "psu-user-agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:80.0) Gecko/20100101 Firefox/80.0"
 }
 
-/* Display the available bank for user to choose */
+/**
+ * Display the available bank for user to choose 
+ * @param {*} banks A list of all available banks
+ */
 const displayBankList = async (banks) => {
   const result = await fetch(`${BASE_URL}/aspsps`, {
      headers: baseHeaders
@@ -33,8 +36,13 @@ const displayBankList = async (banks) => {
     console.log(`Id : ${i + 1}, Bank Name : ${bankinfo.name}-${bankinfo.country}`)
   }
 }
-  
-/* Start authorize according to user input */
+
+/**
+ * Start authorize according to user input
+ * @param {*} input The indicator of a chosen bank
+ * @param {*} banks A list of all available banks
+ * @returns An url for authorization
+ */
 const authorization = async (input, banks) => {
   let name
   let country
@@ -71,12 +79,16 @@ const authorization = async (input, banks) => {
     body: JSON.stringify(startAuthorizationBody)
   })
   
-  /* Get the url for authorization */
+  // Get the url for authorization
   let url = (await result.json()).url
   return url
 }
   
-/* Create uer session */
+/**
+ * Create user session
+ * @param {*} code The code provided after authorization
+ * @returns session id
+ */
 const createUserSession = async (code) => {
   const createSessionBody = {
     code: code
@@ -92,7 +104,10 @@ const createUserSession = async (code) => {
   return result
 }
 
-/* Displays a short summary of the transactions for the last 30 days. */
+/**
+ * Displays a short summary of the transactions for the last 30 days.
+ * @param {*} sessionId session id
+ */
 const displaySummary = async (sessionId) => {
   const result = await fetch(`${BASE_URL}/sessions/${sessionId}`, {
     headers: baseHeaders
@@ -112,7 +127,11 @@ const displaySummary = async (sessionId) => {
   }
 }
 
-/* Show the summary of a specific account */
+/**
+ * Show the summary of a specific account
+ * @param {*} accountId The id of a specific account
+ * @param {*} date The date to get transcations
+ */
 const showAccountInfo = async (accountId, date) => {
   const result = await fetch(`${BASE_URL}/accounts/${accountId}/transactions?date_from=${date}`, {
     headers: psuHeaders
@@ -151,7 +170,11 @@ const showAccountInfo = async (accountId, date) => {
   }
 }
 
-/* Get the date to fetch transactions from */
+/**
+ * Get the date to fetch transactions from
+ * @param {*} days How many days of transactions we want
+ * @returns The beginning date
+ */
 const calculateDate = (days) => {
   let today = new Date()
   let priorDate = JSON.stringify(new Date(new Date().setDate(today.getDate() - days)))
@@ -159,7 +182,11 @@ const calculateDate = (days) => {
   return priorDate.substring(1, 11)
 }
 
-/* Get the transication with max value */
+/**
+ * Get the transication with max value
+ * @param {*} transacData The transaction date associated to the account
+ * @returns The transcation recording with the max value
+ */
 const getMaxTransac = (transacData) => {
   let max = transacData[0]
   
@@ -172,7 +199,11 @@ const getMaxTransac = (transacData) => {
   return max
 }
 
-/* Calculate the total value of inbound and outbound */
+/**
+ * Calculate the total value of inbound and outbound
+ * @param {*} transacData The transaction date associated to the account
+ * @returns A sum object recording the sum of credit and debit
+ */
 const calculateTotalValue = (transacData) => {
   let creditSum = 0
   let debitSum = 0

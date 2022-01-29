@@ -36,7 +36,9 @@
 
    In this step, you should click the green button.
 
-6. After finish the authentication, copy the code in the redirect url back to the terminal. If the url is`https://enablebanking.com/auth_redirect?state=some_test_state&code=de8ae2bf-c261-4b51-a35b-ed995a64189f`, the code should be `de8ae2bf-c261-4b51-a35b-ed995a64189f`
+6. After finish the authentication, copy the code in the redirect url back to the terminal. If the url is`https://enablebanking.com/auth_redirect?state=some_test_state&code=de8ae2bf-c261-4b51-a35b-ed995a64189f`, the code should be `de8ae2bf-c261-4b51-a35b-ed995a64189f`, like this:
+
+   <img src="./pictures/8.png" alt="截屏2022-01-29 下午8.10.57" style="zoom:50%;" />
 
    If you see error as the following picture, may be the code you typed is wrong, please check that.
 
