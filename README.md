@@ -8,7 +8,7 @@ Make sure Node.js has been installed
 
 To use run the program, you need an application that has been registered on the Enable Banking Control Panel. 
 
-**If you would like to use the application I have registered**, please copy the key I have sent to the `assignment` folder. 
+**If you would like to use the application I have registered**, please copy the key I have sent to the `assignment` folder. Then go to step 3.
 
 **If you would like to use your own application**. First sign up for the Enable Banking Control Panel (simply go to https://enablebanking.com/sign-in/ and enter your email where you would get a one time authentication link) and register a new application (when signed in, go to https://enablebanking.com/cp/applications and fill in the app registration form). After registered the application, you should get a private key and see a page as follows:
 
