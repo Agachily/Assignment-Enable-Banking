@@ -159,15 +159,19 @@ const showAccountInfo = async (accountId, date) => {
     console.log(`The total number of transactions: ${numberOfTransac}`)
     console.log(`The transaction with the maximum value:`)
     console.log(`\tAmount: ${transacwithMaxValue.transaction_amount.amount}`)
-    console.log(`\tDate: ${transacwithMaxValue.booking_date}`)
+    if (transacwithMaxValue.booking_date) {
+      console.log(`\tDate: ${transacwithMaxValue.booking_date}`)
+    } else {
+      console.log(`\tDate: No info`)
+    }
     console.log(`\tStatus: ${transacwithMaxValue.credit_debit_indicator}`)
     console.log(`The total values of all inbound (credit) and outbound (debit) transactions:`)
     console.log(`\tinbound: ${totalValue.creditSum}`)
     console.log(`\toutbound: ${totalValue.debitSum}`)
       
     //console.log(transacData)
-    console.log(`The detail of transactions with max value:`)
-    console.log(transacwithMaxValue)
+    //console.log(`The detail of transactions with max value:`)
+    //console.log(transacwithMaxValue)
   }
 }
 

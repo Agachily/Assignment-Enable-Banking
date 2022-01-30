@@ -7,15 +7,6 @@ const config = JSON.parse(fs.readFileSync(path.join(__dirname, "..", "config.jso
 const KEY_PATH = config.keyPath;
 const APPLICATION_ID = config.applicationId;
 
-
-const base64AddPadding = (str) => {
-  return str + "=".repeat((4 - str.length % 4) % 4);
-}
-
-const urlunsafeSignature = (signature) => {
-  return signature.replace(/\_/g, "/").replace(/\-/g, "+");
-}
-
 const getJWTHeader = () => {
   return encodeData({
     typ: "JWT",
@@ -63,19 +54,8 @@ const input = (query) => {
   }))
 }
 
-const getCode = (url) => {
-  const query = url.split("?")[1];
-  for (const pair of query.split("&")) {
-    const [key, val] = pair.split("=")
-    if (key === "code") {
-      return val;
-    }
-  }
-}
-
 module.exports = {
   getJWT: getJWT,
   config: config,
   input: input,
-  getCode: getCode
 }
