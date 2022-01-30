@@ -114,8 +114,7 @@ const displaySummary = async (sessionId) => {
   })
   
   console.log("\nList of account ids available in the session: ")
-  const sessionData = await result.text()
-  const accountData = JSON.parse(sessionData).accounts
+  const accountData = (await result.json()).accounts
   accountData.forEach(element => console.log(element))
 
   /* Get the date to start fetch transactions */
@@ -137,7 +136,9 @@ const showAccountInfo = async (accountId, date) => {
     headers: psuHeaders
   })
   
-  const transacData = await (await result.json()).transactions
+  const transacDataInText = await result.text()
+  //console.log(transacDataInText)
+  const transacData = JSON.parse(transacDataInText).transactions
 
   if (!transacData) {
     console.log("No transaction data obtained")
