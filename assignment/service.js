@@ -140,7 +140,7 @@ const showAccountInfo = async (accountId, date) => {
   const transacData = await (await result.json()).transactions
 
   if (!transacData) {
-    console.log("No transaction data")
+    console.log("No transaction data obtained")
     return
   }
 
