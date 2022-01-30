@@ -25,6 +25,8 @@ Now, open the file `config.json`, replace the `keyPath`, `applicationId`, and `r
    - `package.json` (Configuration)
    - `service.js` (Services to support the `main.js`)
    - `utils.js` (Support `main.js` and `service.js`)
+   - `node_modules` folder
+   - `package-lock.json`
 
 2. Run the application under the folder `assignment` with command `node main.js`
 

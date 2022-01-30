@@ -140,11 +140,15 @@ const showAccountInfo = async (accountId, date) => {
   //console.log(transacDataInText)
   const transacData = JSON.parse(transacDataInText).transactions
 
+  // In case no data is obtained
   if (!transacData) {
+    console.log(`-----------------------------------------------`)
+    console.log(`AccountID: ${accountId}`)
     console.log("No transaction data obtained")
     return
   }
 
+  // In the no transaction is recorded
   if (transacData.length === 0) {
     console.log(`-----------------------------------------------`)
     console.log(`AccountID: ${accountId}`)
@@ -195,8 +199,8 @@ const calculateDate = (days) => {
 const getMaxTransac = (transacData) => {
   let max = transacData[0]
   
-  for (i = 1; i < transacData.length; i++) {
-    if (parseFloat(max.transaction_amount.amount) < parseFloat(transacData[i].transaction_amount.amount)) {
+  for (let i = 1; i < transacData.length; i++) {
+    if (Number(max.transaction_amount.amount) < Number(transacData[i].transaction_amount.amount)) {
       max = transacData[i]
     }
   }
@@ -212,11 +216,11 @@ const getMaxTransac = (transacData) => {
 const calculateTotalValue = (transacData) => {
   let creditSum = 0
   let debitSum = 0
-  for (i = 1; i < transacData.length; i++) {
+  for (let i = 0; i < transacData.length; i++) {
     if (transacData[i].credit_debit_indicator === 'DBIT') {
-      debitSum += parseFloat(transacData[i].transaction_amount.amount)
+      debitSum += Number(transacData[i].transaction_amount.amount)
     } else {
-      creditSum += parseFloat(transacData[i].transaction_amount.amount)
+      creditSum += Number(transacData[i].transaction_amount.amount)
     }
   }
   
