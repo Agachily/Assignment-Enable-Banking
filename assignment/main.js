@@ -8,7 +8,7 @@ const main = async () => {
   await displayBankList(banks)
 
   // User choosen a bank
-  const chosenBank = await input('Please choose a bank with its Id (like 5) or its name (like Nordea|DK): \n')
+  const chosenBank = await input('Please choose a bank with its id (like 5) or its name (like Nordea|DK): \n')
   
   // Displays an authentication link
   try {
@@ -19,7 +19,7 @@ const main = async () => {
   console.log(`The link for authorzation is ${url} \n`)
 
   // Complete the authentication and use the code to build session
-  const code = await input('Please copy the link to browser, follow the intructions and then copy the authorisation code to the teminal: \n')
+  const code = await input('Please copy the link to browser, follow the intructions and then copy the authorisation code in the redirect url to the teminal: \n')
   const sessionId = await createUserSession(code)
   if (!sessionId) {
     throw new Error ("The bank code you input maybe wrong, please check");

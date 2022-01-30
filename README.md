@@ -10,7 +10,7 @@ To use run the program, you need an application that has been registered on the 
 
 **If you would like to use the application I have registered**, please copy the key I have sent to the `assignment` folder. Then go to step 3.
 
-**If you would like to use your own application**. First sign up for the Enable Banking Control Panel (simply go to https://enablebanking.com/sign-in/ and enter your email where you would get a one time authentication link) and register a new application (when signed in, go to https://enablebanking.com/cp/applications and fill in the app registration form). After registered the application, you should get a private key and see a page as follows:
+**If you would like to use your own application**. First sign up for the Enable Banking Control Panel (simply go to https://enablebanking.com/sign-in/ and enter your email where you would get a one time authentication link) and register a new application (when signed in, go to https://enablebanking.com/cp/applications and fill in the app registration form). After registered the application, you should get a private key and see a page similar to follows:
 
 <img src="./pictures/9.png" style="zoom: 33%;" />
 
@@ -20,19 +20,19 @@ Now, open the file `config.json`, replace the `keyPath`, `applicationId`, and `r
 
 1. Enter the folder `assignment`, run the command `npm install` under the folder to set the running environment. The folder should contain following files, please check if there is any missing file.
 
-   - The key (a file with suffix `.pem`)
-   - main.js (The main file of the application)
-   - package.json (Configuration)
-   - service.js (Services to support the `main.js`)
-   - utils.js (Support `main.js` and `service.js`)
+   - `The key` (a file with suffix `.pem`)
+   - `main.js` (The main file of the application)
+   - `package.json` (Configuration)
+   - `service.js` (Services to support the `main.js`)
+   - `utils.js` (Support `main.js` and `service.js`)
 
 2. Run the application under the folder `assignment` with command `node main.js`
 
 3. A list of banks will be shown as follows, choose one with its name or id.
 
-   <img src="./pictures/1.png" style="zoom: 33%;" />
+   <img src="./pictures/1.png" style="zoom: 25%;" />
 
-   Note, you should type the ids and names listed on the terminal, anything else is unacceptable . For example to choose the Nordea bank in Denmark. You should type `5` or `Nordea|DK`. For example (with id):
+   Note, you should type the ids and names listed on the terminal, anything else is unacceptable. For example to choose the Nordea bank in Denmark. You should type `5` or `Nordea|DK`. For example (with id):
 
    <img src="./pictures/2.png" style="zoom:33%;" />
 
@@ -60,7 +60,7 @@ Now, open the file `config.json`, replace the `keyPath`, `applicationId`, and `r
 
    <img src="./pictures/7.png" style="zoom:33%;" />
 
-6. After coping the url back to the terminal, you should be able to see a short summary of the transactions for the last 30 days for each account associated with the user’s bank account. As follows:
+6. After coping the url back to the terminal, you should be able to see a short summary of the transactions for the last 30 days for each account associated with the session. As follows:
 
    <img src="./pictures/6.png" style="zoom:33%;" />
 

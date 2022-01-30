@@ -71,16 +71,16 @@ const authorization = async (input, banks) => {
     psu_type: "personal"
   }
   
-  console.log(`\nYou are starting authorization to ${startAuthorizationBody.aspsp.name} in ${startAuthorizationBody.aspsp.country}`)
+  console.log(`\nYou are starting authorization to ${name} in ${country}`)
   
-  let result = await fetch(`${BASE_URL}/auth`,{
+  const result = await fetch(`${BASE_URL}/auth`,{
     method: "POST",
     headers: psuHeaders,
     body: JSON.stringify(startAuthorizationBody)
   })
   
   // Get the url for authorization
-  let url = (await result.json()).url
+  const url = (await result.json()).url
   return url
 }
   
@@ -94,14 +94,14 @@ const createUserSession = async (code) => {
     code: code
   }
   
-  let result = await fetch(`${BASE_URL}/sessions`, {
+  const result = await fetch(`${BASE_URL}/sessions`, {
     method: "POST",
     headers: psuHeaders,
     body: JSON.stringify(createSessionBody)
   })
   
-  result = (await result.json()).session_id
-  return result
+  const sessionId = (await result.json()).session_id
+  return sessionId
 }
 
 /**
@@ -117,7 +117,7 @@ const displaySummary = async (sessionId) => {
   const accountData = (await result.json()).accounts
   accountData.forEach(element => console.log(element))
 
-  /* Get the date to start fetch transactions */
+  // Get the date to start fetch transactions
   let date = calculateDate(30)
   console.log(`\nThe transactions is fetched since: ${date}`)
 
