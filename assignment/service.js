@@ -33,7 +33,7 @@ const displayBankList = async (banks) => {
       country: aspsps[i].country
     };
     banks.push(bankinfo)
-    console.log(`Id : ${i + 1}, Bank Name : ${bankinfo.name}-${bankinfo.country}`)
+    console.log(`Id : ${i + 1}, Bank Name : ${bankinfo.name}|${bankinfo.country}`)
   }
 }
 
@@ -53,7 +53,7 @@ const authorization = async (input, banks) => {
     name = banks[id].name
     country = banks[id].country
   } else {
-    let info = input.split('-')
+    let info = input.split('|')
     name = info[0]
     country = info[1]
   }

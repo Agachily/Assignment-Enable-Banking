@@ -16,7 +16,7 @@
 
    <img src="./pictures/1.png" style="zoom: 33%;" />
    
-   Note, you should type the id and name listed on the terminal, anything else is unacceptable . For example to choose the Nordea bank in Denmark. You should type `5` or `Nordea-DK`. For example:
+   Note, you should type the id and name listed on the terminal, anything else is unacceptable . For example to choose the Nordea bank in Denmark. You should type `5` or `Nordea|DK`. For example:
    
    <img src="./pictures/2.png" style="zoom:33%;" />
    
@@ -24,7 +24,7 @@
    
    <img src="./pictures/3.png" style="zoom:33%;" />
    
-   If you see an error as follows:
+   If you see an error as follows, or the link for authorization is not presented:
    
    <img src="./pictures/4.png" style="zoom:33%;" />
    

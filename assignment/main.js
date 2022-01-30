@@ -8,7 +8,7 @@ const main = async () => {
   await displayBankList(banks)
 
   // User choosen a bank
-  const chosenBank = await input('Please choose a bank with its Id (like 5) or its name (like Nordea-DK): \n')
+  const chosenBank = await input('Please choose a bank with its Id (like 5) or its name (like Nordea|DK): \n')
   
   // Displays an authentication link
   try {
